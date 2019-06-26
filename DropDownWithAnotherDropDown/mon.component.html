@@ -1,0 +1,84 @@
+<!-- 
+<mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+         UserDetails Applications
+        </mat-panel-title>
+        <mat-panel-description>
+         Fill  the Applications
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <form [formGroup]="UserDetails">
+          <mat-form-field>
+            <input matInput placeholder="entername" type="text" formControlName="name" required>
+          </mat-form-field><br/>
+          <mat-form-field>
+            <input matInput placeholder="EnterSecondName" type="text" formControlName="EnterSecondName" required>
+          </mat-form-field><br/>
+          <mat-form-field>
+            <input matInput placeholder="emailid" type="text" formControlName="enteremail" required>
+          </mat-form-field><br/>
+        
+        <mat-form-field>
+          <input matInput placeholder="password" type="password" formControlNmae="password" required>
+        </mat-form-field> <br/>
+        <mat-form-field>
+          <textarea matInput placeholder="adddress" type="text" required formControlName="address"></textarea>
+        </mat-form-field><br/>
+        <mat-checkbox>click me!!!!!!!!!!</mat-checkbox><br/>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        
+        </form>
+        <mat-radio-button>options</mat-radio-button><br/>
+        <mat-radio-button>option 2</mat-radio-button><br/>  
+          <mat-form-field>
+          <mat-label>capitals....!!!!!!!!!!!</mat-label>
+          <mat-select [(ngModel)]="Options" name="drop">
+            <mat-option *ngFor="let cities of city" [value]="cities.value">
+              {{cities.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <p> State: {{Options}} </p>
+        <mat-form-field>
+          <mat-select [(ngModel)]="programming" name="opt">
+            <mat-option *ngFor="let Lan of One" [value]="Lan.value">
+              {{Language.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <p> frameWork:{{programming}}</p>
+        
+        <button mat-button [disabled]="UserDetails.invalid">click..!!!!</button>
+    </mat-expansion-panel>
+     -->
+     <form [formGroup]="DropDownForm">
+        <mat-form-field>
+            <mat-select formControlName="state" placeholder="Select State" (selectionChange)="onStateSelection()">
+              <mat-option *ngFor="let state of statesList" [value]="state.stateId">
+                  {{state.stateName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+              <mat-select formControlName="city" placeholder="Select City">
+                <mat-option *ngFor="let city of cities" [value]="city.cityId">
+                    {{city.cityName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+          <!-- <mat-form-field>
+              <mat-select formControlName="city" name="opt">
+                <mat-option *ngFor="let Lan of One" [value]="Lan.value">
+                  {{Language.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field> -->
+     </form>
